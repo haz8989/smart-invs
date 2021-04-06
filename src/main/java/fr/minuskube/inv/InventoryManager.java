@@ -1,6 +1,7 @@
 package fr.minuskube.inv;
 
 import fr.minuskube.inv.content.InventoryContents;
+import fr.minuskube.inv.items.ClickableItem;
 import fr.minuskube.inv.opener.ChestInventoryOpener;
 import fr.minuskube.inv.opener.InventoryOpener;
 import fr.minuskube.inv.opener.SpecialInventoryOpener;
@@ -111,9 +112,13 @@ public class InventoryManager {
             if(!inventories.containsKey(p))
                 return;
 
-            if(e.getAction() == InventoryAction.COLLECT_TO_CURSOR || e.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY) {
+            if(e.getAction() == InventoryAction.COLLECT_TO_CURSOR) {
                 e.setCancelled(true);
                 return;
+            }
+
+            if (e.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY) {
+                e.setCancelled(true);
             }
 
             if(e.getAction() == InventoryAction.NOTHING && e.getClick() != ClickType.MIDDLE) {
@@ -122,7 +127,6 @@ public class InventoryManager {
             }
 
             if(e.getClickedInventory() == p.getOpenInventory().getTopInventory()) {
-                e.setCancelled(true);
 
                 int row = e.getSlot() / 9;
                 int column = e.getSlot() % 9;
@@ -139,7 +143,17 @@ public class InventoryManager {
                         .filter(listener -> listener.getType() == InventoryClickEvent.class)
                         .forEach(listener -> ((InventoryListener<InventoryClickEvent>) listener).accept(e));
 
-                contents.get(p).get(row, column).ifPresent(item -> item.run(e));
+                contents.get(p).get(row, column).ifPresent(item -> {
+                    if (item instanceof ClickableItem) {
+                        e.setCancelled(true);
+                        try {
+                            ((ClickableItem) item).run(e);
+                        } catch (Exception exception) {
+                            Bukkit.getLogger().warning("An error occurred while running clickable item listener");
+                            exception.printStackTrace();
+                        }
+                    }
+                });
 
                 p.updateInventory();
             }

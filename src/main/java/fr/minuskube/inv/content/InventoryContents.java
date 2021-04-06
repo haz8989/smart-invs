@@ -1,6 +1,7 @@
 package fr.minuskube.inv.content;
 
-import fr.minuskube.inv.ClickableItem;
+import fr.minuskube.inv.items.ClickableItem;
+import fr.minuskube.inv.items.Item;
 import fr.minuskube.inv.SmartInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -23,12 +24,12 @@ public interface InventoryContents {
     SlotIterator newIterator(String id, SlotIterator.Type type, SlotPos startPos);
     SlotIterator newIterator(SlotIterator.Type type, SlotPos startPos);
 
-    ClickableItem[][] all();
+    Item[][] all();
 
     Optional<SlotPos> firstEmpty();
 
-    Optional<ClickableItem> get(int row, int column);
-    Optional<ClickableItem> get(SlotPos slotPos);
+    Optional<Item> get(int row, int column);
+    Optional<Item> get(SlotPos slotPos);
 
     InventoryContents set(int row, int column, ClickableItem item);
     InventoryContents set(SlotPos slotPos, ClickableItem item);
@@ -54,7 +55,7 @@ public interface InventoryContents {
         private SmartInventory inv;
         private Player player;
 
-        private ClickableItem[][] contents;
+        private Item[][] contents;
 
         private Pagination pagination = new Pagination.Impl();
         private Map<String, SlotIterator> iterators = new HashMap<>();
@@ -102,7 +103,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public ClickableItem[][] all() { return contents; }
+        public Item[][] all() { return contents; }
 
         @Override
         public Optional<SlotPos> firstEmpty() {
@@ -117,7 +118,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public Optional<ClickableItem> get(int row, int column) {
+        public Optional<Item> get(int row, int column) {
             if(row >= contents.length)
                 return Optional.empty();
             if(column >= contents[row].length)
@@ -127,7 +128,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public Optional<ClickableItem> get(SlotPos slotPos) {
+        public Optional<Item> get(SlotPos slotPos) {
             return get(slotPos.getRow(), slotPos.getColumn());
         }
 
