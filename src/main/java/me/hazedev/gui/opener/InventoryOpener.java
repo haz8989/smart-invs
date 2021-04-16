@@ -1,8 +1,8 @@
-package fr.minuskube.inv.opener;
+package me.hazedev.gui.opener;
 
-import fr.minuskube.inv.items.Item;
-import fr.minuskube.inv.SmartInventory;
-import fr.minuskube.inv.content.InventoryContents;
+import me.hazedev.gui.items.Item;
+import me.hazedev.gui.SmartInventory;
+import me.hazedev.gui.content.InventoryContents;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;

@@ -1,4 +1,4 @@
-package fr.minuskube.inv.content;
+package me.hazedev.gui.content;
 
 import org.bukkit.entity.Player;
 

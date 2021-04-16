@@ -1,4 +1,4 @@
-package fr.minuskube.inv;
+package me.hazedev.gui;
 
 import java.util.function.Consumer;
 

@@ -1,4 +1,4 @@
-package fr.minuskube.inv.items;
+package me.hazedev.gui.items;
 
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;

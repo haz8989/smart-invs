@@ -1,8 +1,8 @@
-package fr.minuskube.inv.opener;
+package me.hazedev.gui.opener;
 
 import com.google.common.collect.ImmutableList;
-import fr.minuskube.inv.InventoryManager;
-import fr.minuskube.inv.SmartInventory;
+import me.hazedev.gui.InventoryManager;
+import me.hazedev.gui.SmartInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;

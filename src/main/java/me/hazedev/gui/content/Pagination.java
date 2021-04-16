@@ -1,6 +1,6 @@
-package fr.minuskube.inv.content;
+package me.hazedev.gui.content;
 
-import fr.minuskube.inv.items.ClickableItem;
+import me.hazedev.gui.items.ClickableItem;
 
 import java.util.Arrays;
 

@@ -1,10 +1,10 @@
-package fr.minuskube.inv;
+package me.hazedev.gui;
 
-import fr.minuskube.inv.content.InventoryContents;
-import fr.minuskube.inv.items.ClickableItem;
-import fr.minuskube.inv.opener.ChestInventoryOpener;
-import fr.minuskube.inv.opener.InventoryOpener;
-import fr.minuskube.inv.opener.SpecialInventoryOpener;
+import me.hazedev.gui.content.InventoryContents;
+import me.hazedev.gui.items.ClickableItem;
+import me.hazedev.gui.opener.ChestInventoryOpener;
+import me.hazedev.gui.opener.InventoryOpener;
+import me.hazedev.gui.opener.SpecialInventoryOpener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
