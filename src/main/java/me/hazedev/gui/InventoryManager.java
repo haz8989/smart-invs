@@ -121,7 +121,7 @@ public class InventoryManager {
                 e.setCancelled(true);
             }
 
-            if(e.getAction() == InventoryAction.NOTHING && e.getClick() != ClickType.MIDDLE) {
+            if (e.getAction() == InventoryAction.NOTHING && e.getClick() != ClickType.MIDDLE) {
                 e.setCancelled(true);
                 return;
             }
