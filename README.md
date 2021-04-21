@@ -29,30 +29,8 @@ To use the SmartInvs API, either:
 - Put it in the `plugins` folder of your server, add it to your dependencies in your plugin.yml (e.g. `depend: [SmartInvs]`) and add it to the dependencies in your IDE.
 - Put it inside your plugin jar, initialize an `InventoryManager` in your plugin (don't forget to call the `init()` method), and add a `.manager(invManager)` to your SmartInventory Builders.
 
-You can download the latest version on the [Releases page](https://github.com/MinusKube/SmartInvs/releases) on Github.
-
-You can also use a build system:
-### Gradle
-```xml
-<repository>
-	<id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-</repository>
-<dependency>
-    <groupId>me.hazedev</groupId>
-    <artifactId>SmartInvs</artifactId>
-    <version>1.3.3</version>
-</dependency>
-```
-
-### Maven
-```xml
-<dependency>
-  <groupId>fr.minuskube.inv</groupId>
-  <artifactId>smart-invs</artifactId>
-  <version>1.2.7</version>
-</dependency>
-```
+You can also use a build system such as Maven or Gradle:
+https://jitpack.io/#me.hazedev/SmartInvs
 
 ## TODO
 * Add some Javadocs
