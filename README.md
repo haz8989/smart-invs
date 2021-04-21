@@ -29,7 +29,9 @@ To use the SmartInvs API, either:
 - Put it in the `plugins` folder of your server, add it to your dependencies in your plugin.yml (e.g. `depend: [SmartInvs]`) and add it to the dependencies in your IDE.
 - Put it inside your plugin jar, initialize an `InventoryManager` in your plugin (don't forget to call the `init()` method), and add a `.manager(invManager)` to your SmartInventory Builders.
 
-You can also use a build system such as Maven or Gradle:
+You can download a build from the [releases page on github](https://github.com/haz8989/SmartInvs/releases)
+
+You can also use a build system such as Maven or Gradle:<br>
 https://jitpack.io/#me.hazedev/SmartInvs
 
 ## TODO
