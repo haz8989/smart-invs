@@ -33,14 +33,16 @@ You can download the latest version on the [Releases page](https://github.com/Mi
 
 You can also use a build system:
 ### Gradle
-```gradle
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile 'fr.minuskube.inv:smart-invs:1.2.7'
-}
+```xml
+<repository>
+	<id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+<dependency>
+    <groupId>me.hazedev</groupId>
+    <artifactId>SmartInvs</artifactId>
+    <version>1.3.3</version>
+</dependency>
 ```
 
 ### Maven
