@@ -1,12 +1,12 @@
 package me.hazedev.gui.content;
 
-import me.hazedev.gui.items.ClickableItem;
+import me.hazedev.gui.items.Item;
 
 import java.util.Arrays;
 
 public interface Pagination {
 
-    ClickableItem[] getPageItems();
+    Item[] getPageItems();
 
     int getPage();
     Pagination page(int page);
@@ -21,7 +21,7 @@ public interface Pagination {
 
     Pagination addToIterator(SlotIterator iterator);
 
-    Pagination setItems(ClickableItem... items);
+    Pagination setItems(Item... items);
     Pagination setItemsPerPage(int itemsPerPage);
 
 
@@ -29,11 +29,11 @@ public interface Pagination {
 
         private int currentPage;
 
-        private ClickableItem[] items = new ClickableItem[0];
+        private Item[] items = new Item[0];
         private int itemsPerPage = 5;
 
         @Override
-        public ClickableItem[] getPageItems() {
+        public Item[] getPageItems() {
             return Arrays.copyOfRange(items,
                     currentPage * itemsPerPage,
                     (currentPage + 1) * itemsPerPage);
@@ -91,7 +91,7 @@ public interface Pagination {
 
         @Override
         public Pagination addToIterator(SlotIterator iterator) {
-            for(ClickableItem item : getPageItems()) {
+            for(Item item : getPageItems()) {
                 iterator.next().set(item);
 
                 if(iterator.ended())
@@ -102,7 +102,7 @@ public interface Pagination {
         }
 
         @Override
-        public Pagination setItems(ClickableItem... items) {
+        public Pagination setItems(Item... items) {
             this.items = items;
             return this;
         }

@@ -1,6 +1,6 @@
 package me.hazedev.gui.content;
 
-import me.hazedev.gui.items.ClickableItem;
+import me.hazedev.gui.items.Item;
 import me.hazedev.gui.items.Item;
 import me.hazedev.gui.SmartInventory;
 import org.bukkit.Bukkit;
@@ -32,19 +32,19 @@ public interface InventoryContents {
     Optional<Item> get(int row, int column);
     Optional<Item> get(SlotPos slotPos);
 
-    InventoryContents set(int row, int column, ClickableItem item);
-    InventoryContents set(SlotPos slotPos, ClickableItem item);
+    InventoryContents set(int row, int column, Item item);
+    InventoryContents set(SlotPos slotPos, Item item);
 
-    InventoryContents add(ClickableItem item);
+    InventoryContents add(Item item);
 
-    InventoryContents fill(ClickableItem item);
-    InventoryContents fillRow(int row, ClickableItem item);
-    InventoryContents fillColumn(int column, ClickableItem item);
-    InventoryContents fillBorders(ClickableItem item);
+    InventoryContents fill(Item item);
+    InventoryContents fillRow(int row, Item item);
+    InventoryContents fillColumn(int column, Item item);
+    InventoryContents fillBorders(Item item);
 
     InventoryContents fillRect(int fromRow, int fromColumn,
-                               int toRow, int toColumn, ClickableItem item);
-    InventoryContents fillRect(SlotPos fromPos, SlotPos toPos, ClickableItem item);
+                               int toRow, int toColumn, Item item);
+    InventoryContents fillRect(SlotPos fromPos, SlotPos toPos, Item item);
 
     <T> T property(String name);
     <T> T property(String name, T def);
@@ -65,7 +65,7 @@ public interface InventoryContents {
         public Impl(SmartInventory inv, UUID player) {
             this.inv = inv;
             this.player = player;
-            this.contents = new ClickableItem[inv.getRows()][inv.getColumns()];
+            this.contents = new Item[inv.getRows()][inv.getColumns()];
         }
 
         @Override
@@ -134,7 +134,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents set(int row, int column, ClickableItem item) {
+        public InventoryContents set(int row, int column, Item item) {
             if(row >= contents.length)
                 return this;
             if(column >= contents[row].length)
@@ -146,12 +146,12 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents set(SlotPos slotPos, ClickableItem item) {
+        public InventoryContents set(SlotPos slotPos, Item item) {
             return set(slotPos.getRow(), slotPos.getColumn(), item);
         }
 
         @Override
-        public InventoryContents add(ClickableItem item) {
+        public InventoryContents add(Item item) {
             for(int row = 0; row < contents.length; row++) {
                 for(int column = 0; column < contents[0].length; column++) {
                     if(contents[row][column] == null) {
@@ -165,7 +165,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents fill(ClickableItem item) {
+        public InventoryContents fill(Item item) {
             for(int row = 0; row < contents.length; row++)
                 for(int column = 0; column < contents[row].length; column++)
                     set(row, column, item);
@@ -174,7 +174,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents fillRow(int row, ClickableItem item) {
+        public InventoryContents fillRow(int row, Item item) {
             if(row >= contents.length)
                 return this;
 
@@ -185,7 +185,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents fillColumn(int column, ClickableItem item) {
+        public InventoryContents fillColumn(int column, Item item) {
             for(int row = 0; row < contents.length; row++)
                 set(row, column, item);
 
@@ -193,13 +193,13 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents fillBorders(ClickableItem item) {
+        public InventoryContents fillBorders(Item item) {
             fillRect(0, 0, inv.getRows() - 1, inv.getColumns() - 1, item);
             return this;
         }
 
         @Override
-        public InventoryContents fillRect(int fromRow, int fromColumn, int toRow, int toColumn, ClickableItem item) {
+        public InventoryContents fillRect(int fromRow, int fromColumn, int toRow, int toColumn, Item item) {
             for(int row = fromRow; row <= toRow; row++) {
                 for(int column = fromColumn; column <= toColumn; column++) {
                     if(row != fromRow && row != toRow && column != fromColumn && column != toColumn)
@@ -213,7 +213,7 @@ public interface InventoryContents {
         }
 
         @Override
-        public InventoryContents fillRect(SlotPos fromPos, SlotPos toPos, ClickableItem item) {
+        public InventoryContents fillRect(SlotPos fromPos, SlotPos toPos, Item item) {
             return fillRect(fromPos.getRow(), fromPos.getColumn(), toPos.getRow(), toPos.getColumn(), item);
         }
 

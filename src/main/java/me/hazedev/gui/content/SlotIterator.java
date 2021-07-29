@@ -1,6 +1,6 @@
 package me.hazedev.gui.content;
 
-import me.hazedev.gui.items.ClickableItem;
+import me.hazedev.gui.items.Item;
 import me.hazedev.gui.items.Item;
 import me.hazedev.gui.SmartInventory;
 
@@ -16,7 +16,7 @@ public interface SlotIterator {
     }
 
     Optional<Item> get();
-    SlotIterator set(ClickableItem item);
+    SlotIterator set(Item item);
 
     SlotIterator previous();
     SlotIterator next();
@@ -73,7 +73,7 @@ public interface SlotIterator {
         }
 
         @Override
-        public SlotIterator set(ClickableItem item) {
+        public SlotIterator set(Item item) {
             if(canPlace())
                 contents.set(row, column, item);
 
