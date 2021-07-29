@@ -2,6 +2,7 @@ name: SmartInvs
 version: ${project.version}
 description: Inventory API for your Bukkit Plugins.
 author: MinusKube
+api-version: 1.16
 authors: [MinusKube, HazeDev]
 website: https://github.com/haz8989/SmartInvs
 main: me.hazedev.gui.SmartInvsPlugin
