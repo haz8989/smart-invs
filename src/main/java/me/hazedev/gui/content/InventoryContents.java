@@ -1,8 +1,7 @@
 package me.hazedev.gui.content;
 
-import me.hazedev.gui.items.Item;
-import me.hazedev.gui.items.Item;
 import me.hazedev.gui.SmartInventory;
+import me.hazedev.gui.items.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -53,14 +52,14 @@ public interface InventoryContents {
 
     class Impl implements InventoryContents {
 
-        private SmartInventory inv;
-        private UUID player;
+        private final SmartInventory inv;
+        private final UUID player;
 
-        private Item[][] contents;
+        private final Item[][] contents;
 
-        private Pagination pagination = new Pagination.Impl();
-        private Map<String, SlotIterator> iterators = new HashMap<>();
-        private Map<String, Object> properties = new HashMap<>();
+        private final Pagination pagination = new Pagination.Impl();
+        private final Map<String, SlotIterator> iterators = new HashMap<>();
+        private final Map<String, Object> properties = new HashMap<>();
 
         public Impl(SmartInventory inv, UUID player) {
             this.inv = inv;

@@ -1,8 +1,8 @@
 package me.hazedev.gui.opener;
 
-import me.hazedev.gui.items.Item;
 import me.hazedev.gui.SmartInventory;
 import me.hazedev.gui.content.InventoryContents;
+import me.hazedev.gui.items.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;

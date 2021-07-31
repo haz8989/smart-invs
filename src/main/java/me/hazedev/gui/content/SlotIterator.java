@@ -1,8 +1,7 @@
 package me.hazedev.gui.content;
 
-import me.hazedev.gui.items.Item;
-import me.hazedev.gui.items.Item;
 import me.hazedev.gui.SmartInventory;
+import me.hazedev.gui.items.Item;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -39,15 +38,15 @@ public interface SlotIterator {
 
     class Impl implements SlotIterator {
 
-        private InventoryContents contents;
-        private SmartInventory inv;
+        private final InventoryContents contents;
+        private final SmartInventory inv;
 
-        private Type type;
+        private final Type type;
         private boolean started = false;
         private boolean allowOverride = true;
         private int row, column;
 
-        private Set<SlotPos> blacklisted = new HashSet<>();
+        private final Set<SlotPos> blacklisted = new HashSet<>();
 
         public Impl(InventoryContents contents, SmartInventory inv,
                     Type type, int startRow, int startColumn) {
