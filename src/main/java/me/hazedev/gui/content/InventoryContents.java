@@ -134,13 +134,10 @@ public interface InventoryContents {
 
         @Override
         public InventoryContents set(int row, int column, Item item) {
-            if(row >= contents.length)
-                return this;
-            if(column >= contents[row].length)
-                return this;
-
-            contents[row][column] = item;
-            update(row, column, item != null ? item.getItem() : null);
+            if (row < contents.length && column < contents[row].length) {
+                contents[row][column] = item;
+                update(row, column, item != null ? item.getItem() : null);
+            }
             return this;
         }
 
