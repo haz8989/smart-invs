@@ -32,14 +32,13 @@ import java.util.UUID;
 
 public class InventoryManager {
 
-    private JavaPlugin plugin;
-    private PluginManager pluginManager;
+    private final JavaPlugin plugin;
 
-    private Map<UUID, SmartInventory> inventories;
-    private Map<UUID, InventoryContents> contents;
+    private final Map<UUID, SmartInventory> inventories;
+    private final Map<UUID, InventoryContents> contents;
 
-    private List<InventoryOpener> defaultOpeners;
-    private List<InventoryOpener> openers;
+    private final List<InventoryOpener> defaultOpeners;
+    private final List<InventoryOpener> openers;
 
     public InventoryManager(JavaPlugin plugin) {
         this.plugin = plugin;
