@@ -26,7 +26,7 @@ public class SmartInventory {
     private SmartInventory parent;
 
     private List<InventoryListener<? extends Event>> listeners;
-    private InventoryManager manager;
+    private final InventoryManager manager;
 
     private SmartInventory(InventoryManager manager) {
         this.manager = manager;
@@ -103,7 +103,7 @@ public class SmartInventory {
         private InventoryProvider provider;
         private SmartInventory parent;
 
-        private List<InventoryListener<? extends Event>> listeners = new ArrayList<>();
+        private final List<InventoryListener<? extends Event>> listeners = new ArrayList<>();
 
         private Builder() {}
 
@@ -161,7 +161,7 @@ public class SmartInventory {
 
             if(manager == null)
                 throw new IllegalStateException("The manager of the SmartInventory.Builder must be set, "
-                        + "or the SmartInvs should be loaded as a plugin.");
+                        + "or SmartInvs should be loaded as a plugin.");
 
             SmartInventory inv = new SmartInventory(manager);
             inv.id = this.id;
