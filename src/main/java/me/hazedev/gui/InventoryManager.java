@@ -42,7 +42,6 @@ public class InventoryManager {
 
     public InventoryManager(JavaPlugin plugin) {
         this.plugin = plugin;
-        this.pluginManager = Bukkit.getPluginManager();
 
         this.inventories = new HashMap<>();
         this.contents = new HashMap<>();
@@ -56,8 +55,7 @@ public class InventoryManager {
     }
 
     public void init() {
-        pluginManager.registerEvents(new InvListener(), plugin);
-
+        Bukkit.getPluginManager().registerEvents(new InvListener(), plugin);
         new InvTask().runTaskTimer(plugin, 1, 1);
     }
 
